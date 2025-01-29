@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const post = await getAboutPage();
 
   const seo = post?.yoast_head_json;
