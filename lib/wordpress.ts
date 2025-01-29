@@ -446,3 +446,18 @@ export async function revalidateWordPressData(tags: string[] = ["wordpress"]) {
 
 // Export error class for error handling
 export { WordPressAPIError };
+
+
+// getting content for about page
+
+export async function getAboutPage(): Promise<Page> {
+  const url = getUrl("/wp-json/wp/v2/pages/?slug=about/");
+  const response = await wordpressFetch<Page[]>(url, {
+    next: {
+      ...defaultFetchOptions.next,
+      tags: ["wordpress", `about`],
+    },
+  });
+
+  return response[0];
+}
