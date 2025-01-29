@@ -18,6 +18,7 @@ interface RenderedContent {
   protected: boolean;
 }
 
+
 interface RenderedTitle {
   rendered: string;
 }
@@ -90,6 +91,7 @@ export interface Page extends WPEntity {
   ping_status: "open" | "closed";
   template: string;
   meta: Record<string, unknown>;
+  yoast_head_json: any;
 }
 
 // Taxonomy types
